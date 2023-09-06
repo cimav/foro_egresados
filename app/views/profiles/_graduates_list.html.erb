@@ -1,0 +1,46 @@
+<section class="thredded--main-section">
+  <!--
+  <div class="thredded--moderated-notice">
+    <span>Notice: los últimos serán los 1eros</span>
+  </div>
+  -->
+  <% if @users.present? %>
+    <table class="nop--thredded--moderation--users-table thredded--table graduates--table">
+      <!-- <caption>Caption: Captamos</caption> -->
+      <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Nombre</th>
+        <th>Matrícula</th>
+        <th>Programa</th>
+        <th>Area</th>
+        <th>Director</th>
+        <th>Tesis</th>
+        <th>Defensa</th>
+        <th>LinkedIn</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td> <%= link_to "#{user.username}", "/users/#{user.id}" %> </td>
+          <td><%= user.student_readable.full_name rescue '' %></td>
+          <td><%= user.student_readable.card rescue '' %></td>
+          <td><%= user.student_readable.full_program rescue '' %></td>
+          <td><%= user.student_readable.full_area rescue '' %></td>
+          <td><%= user.student_readable.full_supervisor rescue '' %></td>
+          <td><%= user.student_readable.these_title rescue '' %></td>
+          <td><%= user.student_readable.these_defence_date rescue '' %></td>
+          <td><%= user.linkedin %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>
+
+<% if current_user %>
+  <li class="thredded--user-navigation--item thredded--user-navigation--moderation">
+    <%= link_to "#{current_user.username}", "/users/#{current_user.id}" %>
+  </li>
+<% end %>

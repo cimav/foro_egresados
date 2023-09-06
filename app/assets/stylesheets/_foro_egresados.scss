@@ -1,0 +1,81 @@
+@import "application";
+
+.is-48x48 {
+  height: 60px;
+}
+
+html {
+  font-size: 1rem !important;
+}
+
+table tr:nth-child(odd) {
+  background:#F8F9F9;
+}
+table tr:nth-child(even) {
+  /* background:#fff; */
+}
+table tr:hover {
+  background-color: #feeeee;
+}
+
+/* devise agarra solo una clase; no puedo anidarlas*/
+.devise-form {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+.devise-form-bordeada {
+  margin: 10px;
+  width: 35rem;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid $thredded-brand;
+}
+.devise-form-centrada-bordeada {
+  margin: 10px auto;
+  width: 35rem;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid $thredded-brand;
+}
+
+.profile--title {
+  color:  $thredded-brand;
+}
+
+.profile--tabs {
+  padding-top: 30px;
+}
+
+.tab-pane {
+  padding: 10px;
+}
+
+.medium--field {
+  width: 20rem;
+}
+
+.graduates--table {
+  font-feature-settings: "kern", "liga", "tnum";
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  // width: 100%;
+  font-size: small;
+
+  /* overflow-x: scroll; */
+  th, td {
+    min-width: 200px;
+  }
+
+}
+
+.curp--warning {
+  background: #e6f3fa;
+  color: #f60f0f;
+  border: solid 1px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  width: 35rem;
+  margin-left: 10px;
+}

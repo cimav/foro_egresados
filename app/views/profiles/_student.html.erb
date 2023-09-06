@@ -1,0 +1,9 @@
+<%= simple_form_for(student, url: "profiles/show_student", html: { method: :post, :class=>"nop-devise-form" }) do |f| %>
+  <%= f.input :card, label: 'Matrícula', readonly: true, wrapper_html: { class: 'input-profile medium--field' } %>
+  <%= f.input :full_name, label: 'Nombre', readonly: true, wrapper_html: { class: 'input-profile' } %>
+  <%= f.input :these_title, label: 'Tesis', as: :text, readonly: true, wrapper_html: { class: 'input-profile' } %>
+  <%= f.input :these_defence_date, label: 'Defensa', readonly: true, wrapper_html: { class: 'input-profile' } %>
+  <%= f.input :full_supervisor, label: 'Director',  readonly: true, wrapper_html: { class: 'input-profile' } %>
+  <%= f.input :full_program, label: 'Programa', readonly: true, wrapper_html: { class: 'input-profile' } %>
+  <%= f.input :full_area, label: 'Area', readonly: true, wrapper_html: { class: 'input-profile' } %>
+<%end %>

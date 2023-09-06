@@ -1,0 +1,42 @@
+<%= render 'thredded/shared/cimav_header' %>
+
+<div class="thredded--main-container">
+
+  <div class="thredded--main-navigation thredded--user-navigation thredded--user-navigation-standalone">
+    <h1 class="profile--title">Egresados</h1>
+    <div class="thredded--spacer"></div>
+    <nav class="thredded--navigation">
+      <ul class="">
+        <% if current_user %>
+          <li class="thredded--user-navigation--item thredded--user-navigation--moderation">
+            <%= link_to "#{current_user.username}", "/users/#{current_user.id}" %>
+          </li>
+        <% end %>
+        <li class="thredded--user-navigation--item thredded--user-navigation--moderation">
+          <%= link_to 'Foros', '/forum' %>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+<!--
+  <header class="thredded--main-header">
+    <nav class="thredded--navigation">
+      <ul class="thredded--user-navigation thredded--user-navigation-standalone">
+        <li class="thredded--user-navigation--item thredded--user-navigation--moderation">
+          <a rel="nofollow" href="/forum">
+            <span class="thredded--nav-text">Ir a Foros</span>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <h1 class="profile--title">Egresados</h1>
+  </header>
+-->
+
+  <%= render partial: "profiles/graduates_list", locals: { user: @user } %>
+
+
+</div>

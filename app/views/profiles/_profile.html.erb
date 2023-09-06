@@ -1,0 +1,99 @@
+<%#= Thredded::ApplicationController.render partial: 'thredded/users/posts', locals: {
+    posts: Thredded.posts_page_view(scope: user.thredded_posts.order_newest_first.limit(5),
+                                    current_user: current_user) } %>
+
+<%#= simple_form_for user, action="profiles/create" do |f| %>
+  <%#= f.input :username %>
+  <%#= f.input :email %>
+<%# end %>
+
+  <!--
+  <h6>thredded_current_user > <%= user.id %></h6>
+  <h6>current_user > <%= current_user %></h6>
+  <h6>current_user > <%= current_user.id %></h6>
+  <h6>current_user > <%= current_user.username %></h6>
+  <h6>current_user > <%= current_user.admin %></h6>
+  <h6>current_user > <%= current_user.mod %></h6>
+  -->
+
+  <%- id_same_user =  current_user.id.eql? user.id %>
+  <%- is_admin = current_user.admin %>
+
+  <div class="profile--tabs">
+    <nav>
+
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+        <!-- Admin o usuario -->
+        <% if (is_admin || id_same_user) %>
+          <a class="nav-link" id="nav-perfil-tab" data-bs-toggle="tab" href="#nav-perfil" role="tab" aria-controls="nav-perfil" aria-selected="true">Usuario</a>
+        <% end %>
+
+        <!-- Todos pueden ver Actividad -->
+        <a class="nav-link active " id="nav-actividad-tab" data-bs-toggle="tab" href="#nav-actividad" role="tab" aria-controls="nav-actividad" aria-selected="false">Actividad</a>
+
+        <!-- Si el usuario tiene Student en Posgrado -->
+        <% if @student %>
+          <a class="nav-link " id="nav-posgrado-tab" data-bs-toggle="tab" href="#nav-posgrado" role="tab" aria-controls="nav-posgrado" aria-selected="true">Posgrado</a>
+        <% end %>
+
+        <!-- Admin o usuario -->
+        <% if (is_admin || id_same_user) %>
+          <a class="nav-link" id="nav-trayectoria-tab" data-bs-toggle="tab" href="#nav-trayectoria" role="tab" aria-controls="nav-trayectoria" aria-selected="false">Datos</a>
+        <% end %>
+
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+
+      <!-- Admin o usuario -->
+      <% if (is_admin || id_same_user) %>
+        <div class="tab-pane fade " id="nav-perfil" role="tabpanel" aria-labelledby="nav-perfil-tab">
+          <%= simple_form_for(user, url: "profiles/update_curp", html: { method: :post, :class=>"devise-form-bordeada" }) do |f| %>
+            <%= f.input :username, label: 'Usuario', readonly: true, wrapper_html: { class: 'input-profile medium--field' } %>
+            <%= f.input :email, readonly: true, wrapper_html: { class: 'input-profile' } %>
+            <%= f.input :curp, label: 'CURP', wrapper_html: { class: 'input-profile' } %>
+            <%= f.input :id,  as: :hidden %>
+            <%= f.button :submit, "Actualizar CURP", class: "thredded--button" %>
+          <% end %>
+          <% if !@student %>
+            <div class="curp--warning">
+              El CURP es necesario para conectar tus datos con tu registro del posgrado
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <!-- Todos pueden ver Actividad -->
+      <div class="tab-pane fade show active " id="nav-actividad" role="tabpanel" aria-labelledby="nav-actividad-tab">
+        <% if user.thredded_posts.size.eql? 0 %>
+          <span>Aun no tiene actividad en el foro</span>
+        <% else %>
+          <%= Thredded::ApplicationController.render partial: 'thredded/users/posts', locals: {
+              posts: Thredded.posts_page_view(scope: user.thredded_posts.order_newest_first.limit(10),
+                                              current_user: current_user) } %>
+        <% end %>
+      </div>
+
+      <!-- Si el usuario tiene Student en Posgrado -->
+      <% if @student %>
+        <div class="tab-pane fade " id="nav-posgrado" role="tabpanel" aria-labelledby="nav-posgrado-tab">
+          <%= render partial: "profiles/student", locals: { student: @student } %>
+        </div>
+      <% end %>
+
+      <!-- Admin o usuario -->
+      <% if (is_admin || id_same_user) %>
+        <div class="tab-pane fade" id="nav-trayectoria" role="tabpanel" aria-labelledby="nav-trayectoria-tab">
+          <%= render partial: "profiles/trajectory", locals: { user: user } %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+<!--Bootstrap Js-->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+-->

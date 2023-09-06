@@ -1,0 +1,29 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+
+development:
+  <<: *default
+  database: foro_egresados_development
+
+
+production:
+  <<: *default
+  host: fermi.cimav.edu.mx
+  database: foro_egresados_production
+  username: admin
+  password: <%= ENV['FERMI_DATABASE_PASSWORD']  %>
+  socket: /var/lib/mysql/mysql.sock
+
+sapos_production:
+  <<: *default
+  host: fermi.cimav.edu.mx
+  database: sapos_production
+  username: admin
+  password: <%= ENV['FERMI_DATABASE_PASSWORD']  %>
+  socket: /var/lib/mysql/mysql.sock
