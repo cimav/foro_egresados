@@ -15,30 +15,5 @@
  */
 
 /* $thredded-brand: #2d3e78;*/
-$thredded-brand: #f95959;
-$thredded-grid-container-max-width: none;
-$thredded_page_title: 'Foro de Egresados';
-
-@import "thredded";
-
-#thredded--container {
-  // border: 10px dodgerblue dotted;
-}
-
-.thredded--main-container {
-  padding: 0 4rem 0.75rem 4rem;
-}
-
-.AVOID_thredded--user-navigation {
-  background-color: $thredded-brand;
-  padding: 0 5px;
-  border-radius: 5px;
-}
-.thredded--user-navigation--item a {
-  // color: #F7F7F7;
-  font-weight: bolder;
-}
-
-/*  */
-// @import "foro_egresados";
-
+@import "variables";
+@import "foro_egresados";
