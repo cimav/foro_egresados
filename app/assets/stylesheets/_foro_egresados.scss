@@ -9,23 +9,34 @@
   padding: 0 4rem 0.75rem 4rem;
 }
 
-.AVOID_thredded--user-navigation {
-  background-color: $thredded-brand;
+.thredded--user-navigation--item a {
+  font-weight: 400 !important;
+  font-size: 1rem;
+}
+
+.thredded--user-navigation {
   padding: 0 5px;
   border-radius: 5px;
 }
 .thredded--user-navigation--item a {
-  // color: #F7F7F7;
+  // color: #F7F7F7;thredded--user-navigation
   font-weight: bolder;
 }
-
 
 .is-48x48 {
   height: 60px;
 }
 
 html {
-  font-size: 1rem !important;
+  font-size: 16px; // 1rem !important;
+  // font-size: 16px;
+  font-weight: 400;
+}
+
+.header-principal {
+  /* background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png"); */
+  /* background-image: url("http://cimav.edu.mx/wp-content/uploads/2023/05/1er-Encuentro-de-Egresados-Pagina-Web.png"); */
+  background-size: 100% 140px;
 }
 
 table tr:nth-child(odd) {
@@ -79,13 +90,15 @@ table tr:hover {
   font-feature-settings: "kern", "liga", "tnum";
   border-collapse: collapse;
   margin: 0.75rem 0;
-  // width: 100%;
+  width: 100%;
   font-size: small;
 
   /* overflow-x: scroll; */
   th, td {
     min-width: 200px;
   }
+
+  // cursor: pointer;
 
 }
 

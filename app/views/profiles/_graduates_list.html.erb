@@ -5,9 +5,9 @@
   </div>
   -->
   <% if @users.present? %>
-    <table class="nop--thredded--moderation--users-table thredded--table graduates--table">
+    <table class="table-responsive- nop--thredded--moderation--users-table thredded--table graduates--table">
       <!-- <caption>Caption: Captamos</caption> -->
-      <thead>
+      <thead style="position: sticky;top: 0">
       <tr>
         <th>Usuario</th>
         <th>Nombre</th>
@@ -15,9 +15,9 @@
         <th>Programa</th>
         <th>Area</th>
         <th>Director</th>
-        <th>Tesis</th>
+        <!-- <th>Tesis</th> -->
         <th>Defensa</th>
-        <th>LinkedIn</th>
+        <!-- <th>LinkedIn</th> -->
       </tr>
       </thead>
       <tbody>
@@ -29,9 +29,9 @@
           <td><%= user.student_readable.full_program rescue '' %></td>
           <td><%= user.student_readable.full_area rescue '' %></td>
           <td><%= user.student_readable.full_supervisor rescue '' %></td>
-          <td><%= user.student_readable.these_title rescue '' %></td>
+          <!-- <td><%#= user.student_readable.these_title rescue '' %></td> -->
           <td><%= user.student_readable.these_defence_date rescue '' %></td>
-          <td><%= user.linkedin %></td>
+          <!-- <td><%#= user.linkedin %></td> -->
         </tr>
       <% end %>
       </tbody>
