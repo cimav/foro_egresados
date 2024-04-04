@@ -9,9 +9,10 @@
   <%= form.label :content, content_label %>
   <%= view_hooks.post_form.content_text_area.render self, form: form, content_label: content_label do %>
     <%= render 'thredded/posts_common/form/before_content', form: form %>
-    <%#= form.text_area :content, {rows: 5, required: true, autofocus: !!params[:autofocus_new_post_content]} %>
-    <%= form.text_area :content,  {id: 'summernote',  rows: 5, required: true, autofocus: !!params[:autofocus_new_post_content]} %>
+    <%= form.text_area :content, {rows: 5, required: true, autofocus: !!params[:autofocus_new_post_content]} %>
+    <%#= form.text_area :content,  {id: 'summernote',  rows: 5, required: true, autofocus: !!params[:autofocus_new_post_content]} %>
     <!-- <textarea id="summernote" name="editordata"></textarea> -->
+    <!--
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
@@ -28,6 +29,7 @@
                 ]});
         });
     </script>
+    -->
     <%= render 'thredded/posts_common/form/after_content', form: form %>
   <% end %>
 </li>
