@@ -19,6 +19,8 @@
 
   <%= csrf_meta_tag %>
   <%= csp_meta_tag %>
+
+  <!--  Esta linea hace que los 'Event Listeners' se inyecten en el Documento. E.g. turbolinks:before-cache -->
   <%= javascript_include_tag 'thredded',
                              async: !Rails.application.config.assets.debug,
                              defer: true,
