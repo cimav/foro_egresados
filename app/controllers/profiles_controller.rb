@@ -10,7 +10,8 @@ class ProfilesController < ApplicationController
     @users = User.all
 
     @student = begin
-                 Student.includes(:these, :area).where(curp: @user.curp).last
+                 curp = @user.curp.blank? ? :'CURP_EN_BLANCO' : :@user.curp
+                 Student.includes(:these, :area).where(curp: curp).last
                rescue StandardError, AnotherError => e
                  puts e
                  nil

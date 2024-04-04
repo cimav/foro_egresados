@@ -154,11 +154,10 @@ es:
         page_title: :thredded.nav.settings
       form:
         auto_follow_topics:
-          hint: Sigue automáticamente todos los temas nuevos. El cambio de este ajuste se cambiará en todos los
-            messageboards.
+          hint: Sigue automáticamente todos los temas nuevos. El cambio de este ajuste se cambiará en todos los foros.
           label: Siga todos los temas nuevos
         follow_topics_on_mention:
-          hint: 'Cuando alguien te menciona usando tu nombre de usuario (por ejemplo: @sam), seguirás el tema.'
+          hint: 'Cuando alguien te menciona usando tu nombre de usuario (por ejemplo: @jorge), seguirás el tema.'
           label: Sigue temas en los que seas mencionado
         messageboard_auto_follow_topics:
           hint: >-
@@ -166,7 +165,7 @@ es:
             respectiva anteriormente.
           label: Siga todos los temas nuevos
         messageboard_follow_topics_on_mention:
-          hint: 'Cuando alguien te menciona usando tu nombre de usuario (por ejemplo: @sam) en este foro, seguirás
+          hint: 'Cuando alguien te menciona usando tu nombre de usuario (por ejemplo: @jorge) en este foro, seguirás
             el tema.'
           label: :thredded.preferences.form.follow_topics_on_mention.label
         messageboard_notifications_for_followed_topics:
