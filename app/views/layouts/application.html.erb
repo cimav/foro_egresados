@@ -17,6 +17,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbolinks-track": "reload" %>
 
+    <!-- Chulada. Es lo que permite conectar a la main_app con los metodos del modulo thredded
+    E.g. link_to send(:"destroy_user_session_path") -->
+    <%= javascript_include_tag 'thredded', async: !Rails.application.config.assets.debug, defer: true, 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>

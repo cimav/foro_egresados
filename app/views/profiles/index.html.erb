@@ -15,6 +15,13 @@
         <li class="thredded--user-navigation--item thredded--user-navigation--moderation">
           <%= link_to 'Foros', '/forum' %>
         </li>
+
+        <li class="thredded--user-navigation--item thredded--user-navigation--item">
+          <%= link_to send(:"destroy_user_session_path"), method: :delete do %>
+            <%= t('thredded.nav.sign_out') %>
+          <% end %>
+        </li>
+
       </ul>
     </nav>
 
