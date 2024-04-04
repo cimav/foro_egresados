@@ -52,9 +52,11 @@ class User < ApplicationRecord
 
   def student_readable
 
-    _curp = @user.curp.blank? ? :'CURP_EN_BLANCO' : :@user.curp
+    curp_ = curp.blank? ? :'CURP_EN_BLANCO' : curp
 
-    Student.includes(:these, :area).where(curp: _curp).last
+    puts "#{id} >> #{username} >> #{curp} >> #{curp_}"
+
+    Student.includes(:these, :area).where(curp: curp_).last
   end
 
 
