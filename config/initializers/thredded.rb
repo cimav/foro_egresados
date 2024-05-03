@@ -82,7 +82,7 @@ Thredded.layout = 'thredded/application'
 # ==> Email Configuration
 # Email "From:" field will use the following
 # (this is also used as the "To" address for both email notifications, as all the recipients are on bcc)
-Thredded.email_from = 'seguimiento.egresados@cimav.edu.mx'
+Thredded.email_from = 'red.egresados@cimav.edu.mx'
 
 # Emails going out will prefix the "Subject:" with the following string
 # Thredded.email_outgoing_prefix = '[My Forum] '

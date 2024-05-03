@@ -1,0 +1,19 @@
+<li class="thredded--user-navigation--standalone--session thredded--user-navigation--item
+  thredded--user-navigation--private-topics">
+  <% resource_name = Thredded.user_class_name.demodulize.underscore %>
+  <% if thredded_signed_in? %>
+    <%= link_to main_app.send(:"destroy_#{resource_name}_session_path"), method: :delete do %>
+      <%= inline_svg_tag 'thredded/sign-out.svg',
+                         class: 'thredded--icon reduce_svg',
+                         title: t('thredded.nav.sign_out'), width: '16px', height: '16px' %>
+      <span class="thredded--nav-text"><%= t('thredded.nav.sign_out') %></span>
+    <% end %>
+  <% else %>
+    <%= link_to main_app.send(:"new_#{resource_name}_session_path") do %>
+      <%= inline_svg_tag 'thredded/sign-in.svg',
+                         class: 'thredded--icon reduce_svg',
+                         title:  t('thredded.nav.sign_in'), width: '16px', height: '16px' %>
+      <span class="thredded--nav-text"><%= t('thredded.nav.sign_in') %></span>
+    <% end %>
+  <% end %>
+</li>

@@ -1,5 +1,14 @@
-<ul class="thredded--navigation-breadcrumbs">
-  <li><%= link_to t('thredded.nav.all_messageboards'), messageboards_path %></li>
+<ul class="thredded--navigation-breadcrumbs
+  thredded--user-navigation--item thredded--user-navigation--private-topics">
+  <li>
+    <%#= link_to t('thredded.nav.all_messageboards'), messageboards_path %>
+    <%= link_to messageboards_path do %>
+      <%= inline_svg_tag 'thredded/home.svg',
+                         class: 'thredded--icon--always reduce_svg',
+                         title: t('thredded.nav.all_messageboards'), width: '16px', height: '16px' %>
+      <span class="thredded--nav-text"><%= t('thredded.nav.all_messageboards') %></span>
+    <% end %>
+  </li>
   <% if messageboard_or_nil.try(:persisted?) %>
     <li><%= link_to messageboard.name, messageboard_topics_path(messageboard) %></li>
     <% if @topic %>

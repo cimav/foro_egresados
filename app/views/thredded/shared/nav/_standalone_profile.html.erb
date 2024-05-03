@@ -1,0 +1,11 @@
+<li class="thredded--user-navigation--standalone--profile thredded--user-navigation--item
+  thredded--user-navigation--private-topics">
+  <%#= link_to thredded_current_user.thredded_display_name, user_path(thredded_current_user) %>
+  <%= link_to user_path(thredded_current_user), rel: 'nofollow' do %>
+    <%= inline_svg_tag 'thredded/user.svg',
+                       class: 'thredded--icon reduce_svg' ,
+                       title: thredded_current_user.thredded_display_name %>
+    <span class="thredded--nav-text"><%= thredded_current_user.thredded_display_name %></span>
+  <% end -%>
+
+</li>

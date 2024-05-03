@@ -1,3 +1,9 @@
-<li class="thredded--user-navigation--standalone--profile thredded--user-navigation--item">
-  <%= link_to 'Egresados', '/users' %>
+<li class="thredded--user-navigation--standalone--profile thredded--user-navigation--item
+  thredded--user-navigation--private-topics">
+  <%= link_to '/users', rel: 'nofollow' do %>
+    <%= inline_svg_tag 'thredded/egresados.svg',
+                       class: 'thredded--icon reduce_svg',
+                       title: 'Egresados', width: '16px', height: '16px' %>
+    <span class="thredded--nav-text"><%= 'Egresados' %></span>
+  <% end -%>
 </li>
